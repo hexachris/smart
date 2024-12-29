@@ -1,0 +1,11 @@
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\bin\Debug\SMARTGradeTracker.exe.config
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\bin\Debug\SMARTGradeTracker.exe
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\bin\Debug\SMARTGradeTracker.pdb
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.csproj.AssemblyReference.cache
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.Properties.Resources.resources
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.csproj.GenerateResource.cache
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.csproj.CoreCompileInputs.cache
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.exe
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.pdb
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.mainMenu.resources
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.scoreEntry.resources
