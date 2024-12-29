@@ -54,6 +54,7 @@
             // 
             this.Btn_scoreEntry.BackColor = System.Drawing.Color.Transparent;
             this.Btn_scoreEntry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_scoreEntry.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_scoreEntry.Image = global::SMARTGradeTracker.Properties.Resources._1_score_entry;
             this.Btn_scoreEntry.Location = new System.Drawing.Point(205, 250);
             this.Btn_scoreEntry.Name = "Btn_scoreEntry";
@@ -69,6 +70,7 @@
             // 
             this.Btn_gradeViewer.BackColor = System.Drawing.Color.Transparent;
             this.Btn_gradeViewer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_gradeViewer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_gradeViewer.Image = global::SMARTGradeTracker.Properties.Resources._2_grade_viewer;
             this.Btn_gradeViewer.Location = new System.Drawing.Point(205, 397);
             this.Btn_gradeViewer.Name = "Btn_gradeViewer";
@@ -84,6 +86,7 @@
             // 
             this.Btn_userGuide.BackColor = System.Drawing.Color.Transparent;
             this.Btn_userGuide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_userGuide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_userGuide.Image = global::SMARTGradeTracker.Properties.Resources._3_user_guide;
             this.Btn_userGuide.Location = new System.Drawing.Point(205, 545);
             this.Btn_userGuide.Name = "Btn_userGuide";
@@ -99,6 +102,7 @@
             // 
             this.Btn_systemCredits.BackColor = System.Drawing.Color.Transparent;
             this.Btn_systemCredits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_systemCredits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_systemCredits.Image = global::SMARTGradeTracker.Properties.Resources._4_system_guide;
             this.Btn_systemCredits.Location = new System.Drawing.Point(205, 691);
             this.Btn_systemCredits.Name = "Btn_systemCredits";

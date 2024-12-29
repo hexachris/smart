@@ -84,6 +84,9 @@
     <Compile Include="userGuide.Designer.cs">
       <DependentUpon>userGuide.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="gradeViewer.resx">
+      <DependentUpon>gradeViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainMenu.resx">
       <DependentUpon>mainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +139,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\1-pressed-score-entry.png" />
+    <None Include="Resources\btn_hover_computation.png" />
+    <None Include="Resources\btn_hover_score_entry1.png" />
+    <None Include="Resources\btn_hover_score_entry.png" />
+    <None Include="Resources\background6.png" />
+    <None Include="Resources\btn_computation.png" />
+    <None Include="Resources\btn_score_entry.png" />
+    <None Include="Resources\guide-grade.png" />
+    <None Include="Resources\background5.png" />
     <None Include="Resources\btn-hover-add1.png" />
     <None Include="Resources\hover_home.png" />
     <None Include="Resources\background4.png" />

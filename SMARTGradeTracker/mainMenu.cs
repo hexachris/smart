@@ -23,11 +23,6 @@ namespace SMARTGradeTracker
 
         }
 
-        private void nameImage_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btn_scoreEntry_Click(object sender, EventArgs e)
         {
             this.Hide();

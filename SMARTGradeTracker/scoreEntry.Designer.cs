@@ -50,8 +50,9 @@
             // 
             this.Btn_Home.BackColor = System.Drawing.Color.Transparent;
             this.Btn_Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_Home.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Home.Image = global::SMARTGradeTracker.Properties.Resources.home;
-            this.Btn_Home.Location = new System.Drawing.Point(53, 67);
+            this.Btn_Home.Location = new System.Drawing.Point(57, 64);
             this.Btn_Home.Name = "Btn_Home";
             this.Btn_Home.Size = new System.Drawing.Size(64, 64);
             this.Btn_Home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,6 +66,7 @@
             // 
             this.SideBtn_systemCredits.BackColor = System.Drawing.Color.Transparent;
             this.SideBtn_systemCredits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SideBtn_systemCredits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SideBtn_systemCredits.Image = global::SMARTGradeTracker.Properties.Resources.sidebbtn_system_credits;
             this.SideBtn_systemCredits.Location = new System.Drawing.Point(60, 471);
             this.SideBtn_systemCredits.Name = "SideBtn_systemCredits";
@@ -80,6 +82,7 @@
             // 
             this.SideBtn_gradeViewer.BackColor = System.Drawing.Color.Transparent;
             this.SideBtn_gradeViewer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SideBtn_gradeViewer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SideBtn_gradeViewer.Image = global::SMARTGradeTracker.Properties.Resources.sidebtn_grade_viewer;
             this.SideBtn_gradeViewer.Location = new System.Drawing.Point(53, 288);
             this.SideBtn_gradeViewer.Name = "SideBtn_gradeViewer";
@@ -95,6 +98,7 @@
             // 
             this.SideBtn_userGuide.BackColor = System.Drawing.Color.Transparent;
             this.SideBtn_userGuide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SideBtn_userGuide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SideBtn_userGuide.Image = global::SMARTGradeTracker.Properties.Resources.sidebtn_user_guide;
             this.SideBtn_userGuide.Location = new System.Drawing.Point(70, 381);
             this.SideBtn_userGuide.Name = "SideBtn_userGuide";
@@ -110,6 +114,7 @@
             // 
             this.Btn_add.BackColor = System.Drawing.Color.Transparent;
             this.Btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_add.Image = global::SMARTGradeTracker.Properties.Resources.btn_hover_add1;
             this.Btn_add.Location = new System.Drawing.Point(414, 845);
             this.Btn_add.Name = "Btn_add";
@@ -123,6 +128,7 @@
             // 
             // SubjectComboBox
             // 
+            this.SubjectComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SubjectComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.SubjectComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubjectComboBox.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -136,6 +142,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -149,6 +156,7 @@
             // 
             // rawScoreBox
             // 
+            this.rawScoreBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rawScoreBox.ForeColor = System.Drawing.Color.MidnightBlue;
             this.rawScoreBox.Location = new System.Drawing.Point(442, 613);
             this.rawScoreBox.Name = "rawScoreBox";
@@ -157,6 +165,7 @@
             // 
             // totalScoreBox
             // 
+            this.totalScoreBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.totalScoreBox.ForeColor = System.Drawing.Color.MidnightBlue;
             this.totalScoreBox.Location = new System.Drawing.Point(783, 612);
             this.totalScoreBox.Name = "totalScoreBox";
@@ -165,6 +174,7 @@
             // 
             // pointBox
             // 
+            this.pointBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pointBox.ForeColor = System.Drawing.Color.MidnightBlue;
             this.pointBox.Location = new System.Drawing.Point(442, 725);
             this.pointBox.Name = "pointBox";
