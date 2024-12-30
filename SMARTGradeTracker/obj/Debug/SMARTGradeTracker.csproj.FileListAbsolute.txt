@@ -9,4 +9,8 @@ C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTG
 C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.pdb
 C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.mainMenu.resources
 C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.scoreEntry.resources
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.computationViewer.resources
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.systemCredits.resources
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.userGuide.resources
 C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.gradeViewer.resources
+C:\Users\Chris\source\repos\SMARTGradeTracker\SMARTGradeTracker\obj\Debug\SMARTGradeTracker.subjectViewer.resources

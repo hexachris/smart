@@ -17,11 +17,6 @@ namespace SMARTGradeTracker
             InitializeComponent();
         }
 
-        private void gradeViewer_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btn_Home_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -48,7 +43,7 @@ namespace SMARTGradeTracker
 
         private void SideBtn_scoreEntry_MouseEnter(object sender, EventArgs e)
         {
-            SideBtn_scoreEntry.Image = SMARTGradeTracker.Properties.Resources.btn_hover_score_entry1;
+            SideBtn_scoreEntry.Image = SMARTGradeTracker.Properties.Resources.btn_hover_score_entry;
         }
 
         private void SideBtn_scoreEntry_MouseLeave(object sender, EventArgs e)
@@ -62,6 +57,7 @@ namespace SMARTGradeTracker
             userGuide form = new userGuide();
             form.Show();
         }
+
         private void SideBtn_userGuide_MouseEnter(object sender, EventArgs e)
         {
             SideBtn_userGuide.Image = SMARTGradeTracker.Properties.Resources.sidebtn_hover_user_guide;
@@ -89,6 +85,23 @@ namespace SMARTGradeTracker
             SideBtn_systemCredits.Image = SMARTGradeTracker.Properties.Resources.sidebbtn_system_credits;
         }
 
+        private void Btn_subject_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            subjectViewer form = new subjectViewer();
+            form.Show();
+        }
+
+        private void Btn_subject_MouseEnter(object sender, EventArgs e)
+        {
+            Btn_subject.Image = SMARTGradeTracker.Properties.Resources.btn_subject;
+        }
+
+        private void Btn_subject_MouseLeave(object sender, EventArgs e)
+        {
+            Btn_subject.Image = SMARTGradeTracker.Properties.Resources.btn_subject_1;
+        }
+
         private void Btn_computation_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -98,12 +111,12 @@ namespace SMARTGradeTracker
 
         private void Btn_computation_MouseEnter(object sender, EventArgs e)
         {
-            Btn_computation.Image = SMARTGradeTracker.Properties.Resources.btn_hover_computation;
+            Btn_computation.Image = SMARTGradeTracker.Properties.Resources.btn_computation_y;
         }
 
         private void Btn_computation_MouseLeave(object sender, EventArgs e)
         {
-            Btn_computation.Image = SMARTGradeTracker.Properties.Resources.btn_computation;
+            Btn_computation.Image = SMARTGradeTracker.Properties.Resources.btn_computation_1;
         }
     }
 }

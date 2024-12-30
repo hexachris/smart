@@ -66,11 +66,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="scoreEntry.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="scoreEntry.Designer.cs">
       <DependentUpon>scoreEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subjectViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subjectViewer.Designer.cs">
+      <DependentUpon>subjectViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="systemCredits.cs">
       <SubType>Form</SubType>
@@ -84,6 +95,9 @@
     <Compile Include="userGuide.Designer.cs">
       <DependentUpon>userGuide.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="computationViewer.resx">
+      <DependentUpon>computationViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gradeViewer.resx">
       <DependentUpon>gradeViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,16 +106,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="scoreEntry.resx">
       <DependentUpon>scoreEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subjectViewer.resx">
+      <DependentUpon>subjectViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="systemCredits.resx">
+      <DependentUpon>systemCredits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userGuide.resx">
+      <DependentUpon>userGuide.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,6 +157,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\1-pressed-score-entry.png" />
+    <None Include="Resources\BG1.png" />
+    <None Include="Resources\BG %282%291.png" />
+    <None Include="Resources\btn-computation-y.png" />
+    <None Include="Resources\btn-subject-1.png" />
+    <None Include="Resources\btn-subject.png" />
+    <None Include="Resources\btn-overall-1.png" />
+    <None Include="Resources\btn-overall.png" />
+    <None Include="Resources\btn-computation-1.png" />
+    <None Include="Resources\Grade Viewer.png" />
+    <None Include="Resources\BG.png" />
+    <None Include="Resources\BG %283%29.png" />
+    <None Include="Resources\BG %282%29.png" />
+    <None Include="Resources\background %281%29.png" />
+    <None Include="Resources\background8.png" />
+    <None Include="Resources\btn_see_grade.png" />
+    <None Include="Resources\btn_hover_see_grade.png" />
+    <None Include="Resources\background7.png" />
+    <None Include="Resources\9.png" />
     <None Include="Resources\btn_hover_computation.png" />
     <None Include="Resources\btn_hover_score_entry1.png" />
     <None Include="Resources\btn_hover_score_entry.png" />
