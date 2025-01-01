@@ -15,6 +15,8 @@ namespace SMARTGradeTracker
     {
         private Dictionary<string, int> subjectMapping;
         private Dictionary<string, int> assessmentMapping;
+        private string[] subjectReverseMapping;
+        private string[] assesmentReverseMapping;
         int row, column;
 
         public scoreEntry()
@@ -33,6 +35,16 @@ namespace SMARTGradeTracker
                 {"MATH 24 - Calculus", 6},
                 {"PATHFIT 3", 7}
             };
+            subjectReverseMapping = new string[] {
+                "ITEC 104 - Data Structures and Algorithm",
+                "ITEC 105 - Information Management",
+                "CMSC 202 - Discrete Structures 2",
+                "CMSC 203 - Object Oriented Programming",
+                "GEC 106 - Art Appreciation",
+                "SOSLIT - Sosyedad at Literatura",
+                "MATH 24 - Calculus",
+                "PATHFIT 3",
+            };
 
             assessmentMapping = new Dictionary<string, int>
             {
@@ -40,6 +52,12 @@ namespace SMARTGradeTracker
                 {"Final Examination", 1},
                 {"Quiz Assessment", 2},
                 {"Activity", 3}
+            };
+            assesmentReverseMapping = new string[] {
+                "Midterm Examination",
+                "Final Examination",
+                "Quiz Assessment",
+                "Activity",
             };
         }
 
@@ -113,6 +131,8 @@ namespace SMARTGradeTracker
                 column = assessmentMapping[selectedAssess];
 
                 Computation.AddGrade(row, column, computedScore);
+
+                UpdateHistory();
 
                 MessageBox.Show($"A score of {computedScore} has been put into {selectedSubject} ({row}) under {selectedAssess} ({column})");
             }
@@ -242,6 +262,24 @@ namespace SMARTGradeTracker
 
         }
 
-        
+        private void scoreEntry_Load_1(object sender, EventArgs e)
+        {
+            UpdateHistory();
+        }
+
+        private void UpdateHistory()
+        {
+            // Discard all entries
+            historyBox.Nodes.Clear();
+
+            // Readd all entries
+            foreach (HistoryEntry entry in Computation.history) {
+                TreeNode node = new TreeNode(assesmentReverseMapping[entry.assesment]);
+                string remark = entry.score >= 50 ? "Passed" : "Failed";
+                node.Nodes.Add($"{remark}: {entry.score}%");
+                historyBox.Nodes.Insert(0, node);
+            }
+            historyBox.ExpandAll();
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace SMARTGradeTracker
         public static decimal[,] weightedGrades = new decimal[8, 4];
         public static decimal[] finalGrades = new decimal[8];
 
+        public static List<HistoryEntry> history = new List<HistoryEntry>();
+
         static Computation()
         {
             // Initialize all Lists in the array
@@ -149,6 +151,12 @@ namespace SMARTGradeTracker
         public static void AddGrade(int subject, int assessment, decimal score) 
         {
             grades[subject, assessment].Add(score);
+
+            HistoryEntry entry = new HistoryEntry();
+            entry.subject = subject;
+            entry.assesment = assessment;
+            entry.score = score;
+            history.Add(entry);
         }
 
         public static decimal GetSpecificGrade(int subject, int assessment, int gradeIndex)
@@ -257,5 +265,12 @@ namespace SMARTGradeTracker
 
             MessageBox.Show(message.ToString(), "Grade List", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+    }
+
+    public class HistoryEntry
+    {
+        public int subject;
+        public int assesment;
+        public decimal score;
     }
 }
