@@ -39,6 +39,8 @@
             this.rawScoreBox = new System.Windows.Forms.TextBox();
             this.totalScoreBox = new System.Windows.Forms.TextBox();
             this.pointBox = new System.Windows.Forms.TextBox();
+            this.showGrades = new System.Windows.Forms.Button();
+            this.Btn_calculate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_systemCredits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_gradeViewer)).BeginInit();
@@ -52,10 +54,9 @@
             this.Btn_Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn_Home.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Home.Image = global::SMARTGradeTracker.Properties.Resources.home;
-            this.Btn_Home.Location = new System.Drawing.Point(38, 43);
-            this.Btn_Home.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Home.Location = new System.Drawing.Point(57, 64);
             this.Btn_Home.Name = "Btn_Home";
-            this.Btn_Home.Size = new System.Drawing.Size(43, 43);
+            this.Btn_Home.Size = new System.Drawing.Size(64, 64);
             this.Btn_Home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Btn_Home.TabIndex = 2;
             this.Btn_Home.TabStop = false;
@@ -69,10 +70,9 @@
             this.SideBtn_systemCredits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SideBtn_systemCredits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SideBtn_systemCredits.Image = global::SMARTGradeTracker.Properties.Resources.sidebbtn_system_credits;
-            this.SideBtn_systemCredits.Location = new System.Drawing.Point(40, 314);
-            this.SideBtn_systemCredits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SideBtn_systemCredits.Location = new System.Drawing.Point(60, 471);
             this.SideBtn_systemCredits.Name = "SideBtn_systemCredits";
-            this.SideBtn_systemCredits.Size = new System.Drawing.Size(113, 29);
+            this.SideBtn_systemCredits.Size = new System.Drawing.Size(170, 44);
             this.SideBtn_systemCredits.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SideBtn_systemCredits.TabIndex = 3;
             this.SideBtn_systemCredits.TabStop = false;
@@ -86,10 +86,9 @@
             this.SideBtn_gradeViewer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SideBtn_gradeViewer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SideBtn_gradeViewer.Image = global::SMARTGradeTracker.Properties.Resources.sidebtn_grade_viewer;
-            this.SideBtn_gradeViewer.Location = new System.Drawing.Point(35, 192);
-            this.SideBtn_gradeViewer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SideBtn_gradeViewer.Location = new System.Drawing.Point(52, 288);
             this.SideBtn_gradeViewer.Name = "SideBtn_gradeViewer";
-            this.SideBtn_gradeViewer.Size = new System.Drawing.Size(109, 32);
+            this.SideBtn_gradeViewer.Size = new System.Drawing.Size(164, 48);
             this.SideBtn_gradeViewer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SideBtn_gradeViewer.TabIndex = 4;
             this.SideBtn_gradeViewer.TabStop = false;
@@ -103,10 +102,9 @@
             this.SideBtn_userGuide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SideBtn_userGuide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SideBtn_userGuide.Image = global::SMARTGradeTracker.Properties.Resources.sidebtn_user_guide;
-            this.SideBtn_userGuide.Location = new System.Drawing.Point(47, 254);
-            this.SideBtn_userGuide.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SideBtn_userGuide.Location = new System.Drawing.Point(70, 381);
             this.SideBtn_userGuide.Name = "SideBtn_userGuide";
-            this.SideBtn_userGuide.Size = new System.Drawing.Size(88, 29);
+            this.SideBtn_userGuide.Size = new System.Drawing.Size(132, 44);
             this.SideBtn_userGuide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SideBtn_userGuide.TabIndex = 5;
             this.SideBtn_userGuide.TabStop = false;
@@ -120,10 +118,9 @@
             this.Btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_add.Image = global::SMARTGradeTracker.Properties.Resources.btn_hover_add1;
-            this.Btn_add.Location = new System.Drawing.Point(276, 563);
-            this.Btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_add.Location = new System.Drawing.Point(414, 844);
             this.Btn_add.Name = "Btn_add";
-            this.Btn_add.Size = new System.Drawing.Size(233, 34);
+            this.Btn_add.Size = new System.Drawing.Size(350, 51);
             this.Btn_add.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Btn_add.TabIndex = 6;
             this.Btn_add.TabStop = false;
@@ -138,10 +135,9 @@
             this.SubjectComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubjectComboBox.ForeColor = System.Drawing.Color.MidnightBlue;
             this.SubjectComboBox.FormattingEnabled = true;
-            this.SubjectComboBox.Location = new System.Drawing.Point(295, 193);
-            this.SubjectComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubjectComboBox.Location = new System.Drawing.Point(442, 290);
             this.SubjectComboBox.Name = "SubjectComboBox";
-            this.SubjectComboBox.Size = new System.Drawing.Size(380, 21);
+            this.SubjectComboBox.Size = new System.Drawing.Size(568, 28);
             this.SubjectComboBox.Sorted = true;
             this.SubjectComboBox.TabIndex = 7;
             this.SubjectComboBox.Text = "Yuh";
@@ -154,10 +150,9 @@
             this.AssementComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssementComboBox.ForeColor = System.Drawing.Color.MidnightBlue;
             this.AssementComboBox.FormattingEnabled = true;
-            this.AssementComboBox.Location = new System.Drawing.Point(295, 259);
-            this.AssementComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AssementComboBox.Location = new System.Drawing.Point(442, 388);
             this.AssementComboBox.Name = "AssementComboBox";
-            this.AssementComboBox.Size = new System.Drawing.Size(380, 21);
+            this.AssementComboBox.Size = new System.Drawing.Size(568, 28);
             this.AssementComboBox.Sorted = true;
             this.AssementComboBox.TabIndex = 8;
             this.AssementComboBox.Text = "Yuh";
@@ -167,10 +162,9 @@
             // 
             this.rawScoreBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rawScoreBox.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.rawScoreBox.Location = new System.Drawing.Point(295, 409);
-            this.rawScoreBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rawScoreBox.Location = new System.Drawing.Point(442, 614);
             this.rawScoreBox.Name = "rawScoreBox";
-            this.rawScoreBox.Size = new System.Drawing.Size(152, 20);
+            this.rawScoreBox.Size = new System.Drawing.Size(226, 26);
             this.rawScoreBox.TabIndex = 9;
             this.rawScoreBox.TextChanged += new System.EventHandler(this.rawScoreBox_TextChanged);
             // 
@@ -178,10 +172,9 @@
             // 
             this.totalScoreBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.totalScoreBox.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.totalScoreBox.Location = new System.Drawing.Point(522, 408);
-            this.totalScoreBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.totalScoreBox.Location = new System.Drawing.Point(783, 612);
             this.totalScoreBox.Name = "totalScoreBox";
-            this.totalScoreBox.Size = new System.Drawing.Size(152, 20);
+            this.totalScoreBox.Size = new System.Drawing.Size(226, 26);
             this.totalScoreBox.TabIndex = 10;
             this.totalScoreBox.TextChanged += new System.EventHandler(this.totalScoreBox_TextChanged);
             // 
@@ -189,22 +182,43 @@
             // 
             this.pointBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pointBox.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.pointBox.Location = new System.Drawing.Point(295, 483);
-            this.pointBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pointBox.Location = new System.Drawing.Point(442, 724);
             this.pointBox.Name = "pointBox";
-            this.pointBox.Size = new System.Drawing.Size(380, 20);
+            this.pointBox.Size = new System.Drawing.Size(568, 26);
             this.pointBox.TabIndex = 11;
             this.pointBox.TextChanged += new System.EventHandler(this.pointBox_TextChanged);
+            // 
+            // showGrades
+            // 
+            this.showGrades.Location = new System.Drawing.Point(791, 845);
+            this.showGrades.Name = "showGrades";
+            this.showGrades.Size = new System.Drawing.Size(113, 50);
+            this.showGrades.TabIndex = 23;
+            this.showGrades.Text = "Show Grades";
+            this.showGrades.UseVisualStyleBackColor = true;
+            this.showGrades.Click += new System.EventHandler(this.showGrades_Click);
+            // 
+            // Btn_calculate
+            // 
+            this.Btn_calculate.Location = new System.Drawing.Point(920, 844);
+            this.Btn_calculate.Name = "Btn_calculate";
+            this.Btn_calculate.Size = new System.Drawing.Size(113, 50);
+            this.Btn_calculate.TabIndex = 24;
+            this.Btn_calculate.Text = "Calculate";
+            this.Btn_calculate.UseVisualStyleBackColor = true;
+            this.Btn_calculate.Click += new System.EventHandler(this.Btn_calculate_Click);
             // 
             // scoreEntry
             // 
             this.AccessibleDescription = "Your Personal Grade Tracker";
             this.AccessibleName = "SMART";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::SMARTGradeTracker.Properties.Resources.background4;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(913, 499);
+            this.ClientSize = new System.Drawing.Size(1478, 1054);
+            this.Controls.Add(this.Btn_calculate);
+            this.Controls.Add(this.showGrades);
             this.Controls.Add(this.pointBox);
             this.Controls.Add(this.totalScoreBox);
             this.Controls.Add(this.rawScoreBox);
@@ -218,10 +232,9 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1005, 753);
-            this.MinimumSize = new System.Drawing.Size(915, 524);
+            this.MaximumSize = new System.Drawing.Size(1500, 1110);
+            this.MinimumSize = new System.Drawing.Size(1500, 1110);
             this.Name = "scoreEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMART • Score Entry";
@@ -247,5 +260,7 @@
         private System.Windows.Forms.TextBox rawScoreBox;
         private System.Windows.Forms.TextBox totalScoreBox;
         private System.Windows.Forms.TextBox pointBox;
+        private System.Windows.Forms.Button showGrades;
+        private System.Windows.Forms.Button Btn_calculate;
     }
 }

@@ -23,24 +23,20 @@ namespace SMARTGradeTracker
             mainMenu form = new mainMenu();
             form.Show();
         }
-
         private void Btn_Home_MouseEnter(object sender, EventArgs e)
         {
             Btn_Home.Image = SMARTGradeTracker.Properties.Resources.hover_home;
         }
-
         private void Btn_Home_MouseLeave(object sender, EventArgs e)
         {
             Btn_Home.Image = SMARTGradeTracker.Properties.Resources.home;
         }
-
         private void SideBtn_scoreEntry_Click(object sender, EventArgs e)
         {
             this.Hide();
             scoreEntry form = new scoreEntry();
             form.Show();
         }
-
         private void SideBtn_scoreEntry_MouseEnter(object sender, EventArgs e)
         {
             SideBtn_scoreEntry.Image = SMARTGradeTracker.Properties.Resources.btn_hover_score_entry;

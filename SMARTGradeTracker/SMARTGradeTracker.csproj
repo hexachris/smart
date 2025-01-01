@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Computation.cs" />
     <Compile Include="computationViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\1-pressed-score-entry.png" />
+    <None Include="Resources\user guide2.png" />
+    <None Include="Resources\credits2.png" />
     <None Include="Resources\BG1.png" />
     <None Include="Resources\BG %282%291.png" />
     <None Include="Resources\btn-computation-y.png" />

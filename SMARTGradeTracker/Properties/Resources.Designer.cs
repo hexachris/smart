@@ -473,6 +473,16 @@ namespace SMARTGradeTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap credits {
+            get {
+                object obj = ResourceManager.GetObject("credits", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Grade_Viewer {
             get {
                 object obj = ResourceManager.GetObject("Grade Viewer", resourceCulture);
@@ -596,6 +606,16 @@ namespace SMARTGradeTracker.Properties {
         internal static System.Drawing.Bitmap sidebtn_user_guide {
             get {
                 object obj = ResourceManager.GetObject("sidebtn-user-guide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_guide {
+            get {
+                object obj = ResourceManager.GetObject("user guide", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

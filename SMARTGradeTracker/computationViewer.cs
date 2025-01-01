@@ -124,5 +124,10 @@ namespace SMARTGradeTracker
         {
             Btn_subject.Image = SMARTGradeTracker.Properties.Resources.btn_subject_1;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
