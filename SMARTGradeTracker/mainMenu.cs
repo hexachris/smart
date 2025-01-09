@@ -25,9 +25,8 @@ namespace SMARTGradeTracker
 
         private void Btn_scoreEntry_Click(object sender, EventArgs e)
         {
-            this.Hide();
             scoreEntry form = new scoreEntry();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void Btn_scoreEntry_MouseEnter(object sender, EventArgs e)
@@ -42,9 +41,8 @@ namespace SMARTGradeTracker
 
         private void Btn_gradeViewer_Click(object sender, EventArgs e)
         {
-            this.Hide();
             gradeViewer form = new gradeViewer();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void Btn_gradeViewer_MouseEnter(object sender, EventArgs e)
@@ -59,9 +57,8 @@ namespace SMARTGradeTracker
 
         private void Btn_userGuide_Click(object sender, EventArgs e)
         {
-            this.Hide();
             userGuide form = new userGuide();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void Btn_userGuide_MouseEnter(object sender, EventArgs e)
@@ -75,9 +72,8 @@ namespace SMARTGradeTracker
 
         private void Btn_systemCredits_Click(object sender, EventArgs e)
         {
-            this.Hide();
             systemCredits form = new systemCredits();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this   );
         }
 
         private void Btn_systemCredits_MouseEnter(object sender, EventArgs e)
@@ -88,6 +84,16 @@ namespace SMARTGradeTracker
         private void Btn_systemCredits_MouseLeave(object sender, EventArgs e)
         {
             Btn_systemCredits.Image = SMARTGradeTracker.Properties.Resources._4_system_guide;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Program.NavigationHistory.BackForm();
+        }
+
+        private void btnForward_Click(object sender, EventArgs e)
+        {
+            Program.NavigationHistory.ForwardForm();
         }
     }
 }

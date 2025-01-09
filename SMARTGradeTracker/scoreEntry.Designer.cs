@@ -39,13 +39,18 @@
             this.rawScoreBox = new System.Windows.Forms.TextBox();
             this.totalScoreBox = new System.Windows.Forms.TextBox();
             this.pointBox = new System.Windows.Forms.TextBox();
-            this.showGrades = new System.Windows.Forms.Button();
-            this.Btn_calculate = new System.Windows.Forms.Button();
+            this.historyBox = new System.Windows.Forms.TreeView();
+            this.btnBack = new System.Windows.Forms.PictureBox();
+            this.btnCalculate = new System.Windows.Forms.PictureBox();
+            this.btnForward = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_systemCredits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_gradeViewer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_userGuide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_add)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCalculate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Home
@@ -133,14 +138,13 @@
             this.SubjectComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SubjectComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.SubjectComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubjectComboBox.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.SubjectComboBox.ForeColor = System.Drawing.Color.SlateGray;
             this.SubjectComboBox.FormattingEnabled = true;
             this.SubjectComboBox.Location = new System.Drawing.Point(442, 290);
             this.SubjectComboBox.Name = "SubjectComboBox";
             this.SubjectComboBox.Size = new System.Drawing.Size(568, 28);
             this.SubjectComboBox.Sorted = true;
             this.SubjectComboBox.TabIndex = 7;
-            this.SubjectComboBox.Text = "Yuh";
             this.SubjectComboBox.SelectedIndexChanged += new System.EventHandler(this.SubjectComboBox_SelectedIndexChanged);
             // 
             // AssementComboBox
@@ -148,14 +152,13 @@
             this.AssementComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AssementComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.AssementComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AssementComboBox.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.AssementComboBox.ForeColor = System.Drawing.Color.SlateGray;
             this.AssementComboBox.FormattingEnabled = true;
             this.AssementComboBox.Location = new System.Drawing.Point(442, 388);
             this.AssementComboBox.Name = "AssementComboBox";
             this.AssementComboBox.Size = new System.Drawing.Size(568, 28);
             this.AssementComboBox.Sorted = true;
             this.AssementComboBox.TabIndex = 8;
-            this.AssementComboBox.Text = "Yuh";
             this.AssementComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // rawScoreBox
@@ -177,6 +180,7 @@
             this.totalScoreBox.Size = new System.Drawing.Size(226, 26);
             this.totalScoreBox.TabIndex = 10;
             this.totalScoreBox.TextChanged += new System.EventHandler(this.totalScoreBox_TextChanged);
+            this.totalScoreBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalScoreBox_KeyPress);
             // 
             // pointBox
             // 
@@ -188,25 +192,60 @@
             this.pointBox.TabIndex = 11;
             this.pointBox.TextChanged += new System.EventHandler(this.pointBox_TextChanged);
             // 
-            // showGrades
+            // historyBox
             // 
-            this.showGrades.Location = new System.Drawing.Point(791, 845);
-            this.showGrades.Name = "showGrades";
-            this.showGrades.Size = new System.Drawing.Size(113, 50);
-            this.showGrades.TabIndex = 23;
-            this.showGrades.Text = "Show Grades";
-            this.showGrades.UseVisualStyleBackColor = true;
-            this.showGrades.Click += new System.EventHandler(this.showGrades_Click);
+            this.historyBox.Location = new System.Drawing.Point(1089, 277);
+            this.historyBox.Margin = new System.Windows.Forms.Padding(4);
+            this.historyBox.Name = "historyBox";
+            this.historyBox.Size = new System.Drawing.Size(270, 586);
+            this.historyBox.TabIndex = 25;
+            this.historyBox.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.historyBox_AfterSelect);
             // 
-            // Btn_calculate
+            // btnBack
             // 
-            this.Btn_calculate.Location = new System.Drawing.Point(920, 844);
-            this.Btn_calculate.Name = "Btn_calculate";
-            this.Btn_calculate.Size = new System.Drawing.Size(113, 50);
-            this.Btn_calculate.TabIndex = 24;
-            this.Btn_calculate.Text = "Calculate";
-            this.Btn_calculate.UseVisualStyleBackColor = true;
-            this.Btn_calculate.Click += new System.EventHandler(this.Btn_calculate_Click);
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Image = global::SMARTGradeTracker.Properties.Resources.arrow_left;
+            this.btnBack.Location = new System.Drawing.Point(52, 974);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(18, 26);
+            this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnBack.TabIndex = 26;
+            this.btnBack.TabStop = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
+            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
+            // 
+            // btnCalculate
+            // 
+            this.btnCalculate.BackColor = System.Drawing.Color.Transparent;
+            this.btnCalculate.Image = global::SMARTGradeTracker.Properties.Resources.btn_calculate_normal1;
+            this.btnCalculate.Location = new System.Drawing.Point(783, 845);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(227, 50);
+            this.btnCalculate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCalculate.TabIndex = 27;
+            this.btnCalculate.TabStop = false;
+            this.btnCalculate.Click += new System.EventHandler(this.Btn_calculate_Click);
+            this.btnCalculate.MouseEnter += new System.EventHandler(this.btnCalculate_MouseEnter);
+            this.btnCalculate.MouseLeave += new System.EventHandler(this.btnCalculate_MouseLeave);
+            // 
+            // btnForward
+            // 
+            this.btnForward.BackColor = System.Drawing.Color.Transparent;
+            this.btnForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnForward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnForward.Image = global::SMARTGradeTracker.Properties.Resources.arrow_right;
+            this.btnForward.Location = new System.Drawing.Point(115, 974);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(18, 26);
+            this.btnForward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnForward.TabIndex = 28;
+            this.btnForward.TabStop = false;
+            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
+            this.btnForward.MouseEnter += new System.EventHandler(this.btnForward_MouseEnter);
+            this.btnForward.MouseLeave += new System.EventHandler(this.btnForward_MouseLeave);
             // 
             // scoreEntry
             // 
@@ -216,9 +255,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::SMARTGradeTracker.Properties.Resources.background4;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1478, 1054);
-            this.Controls.Add(this.Btn_calculate);
-            this.Controls.Add(this.showGrades);
+            this.ClientSize = new System.Drawing.Size(1474, 1046);
+            this.Controls.Add(this.btnForward);
+            this.Controls.Add(this.btnCalculate);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.historyBox);
             this.Controls.Add(this.pointBox);
             this.Controls.Add(this.totalScoreBox);
             this.Controls.Add(this.rawScoreBox);
@@ -233,16 +274,20 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1500, 1110);
-            this.MinimumSize = new System.Drawing.Size(1500, 1110);
+            this.MaximumSize = new System.Drawing.Size(1496, 1102);
+            this.MinimumSize = new System.Drawing.Size(1496, 1102);
             this.Name = "scoreEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMART • Score Entry";
+            this.Load += new System.EventHandler(this.scoreEntry_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_systemCredits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_gradeViewer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_userGuide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_add)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCalculate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,7 +305,9 @@
         private System.Windows.Forms.TextBox rawScoreBox;
         private System.Windows.Forms.TextBox totalScoreBox;
         private System.Windows.Forms.TextBox pointBox;
-        private System.Windows.Forms.Button showGrades;
-        private System.Windows.Forms.Button Btn_calculate;
+        private System.Windows.Forms.TreeView historyBox;
+        private System.Windows.Forms.PictureBox btnBack;
+        private System.Windows.Forms.PictureBox btnCalculate;
+        private System.Windows.Forms.PictureBox btnForward;
     }
 }

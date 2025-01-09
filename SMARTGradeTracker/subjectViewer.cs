@@ -14,14 +14,62 @@ namespace SMARTGradeTracker
     {
         public subjectViewer()
         {
+            
             InitializeComponent();
+
+            DisplayLinkedList();
+        }
+
+        private void DisplayLinkedList()
+        {
+
+            var linkedListFinalGrades = Computation.linkedListFinalGrades;
+
+            // List of subject names para mag display sa linked list box
+            string[] subjectNames = new string[]
+            {
+                "\nITEC 104 - ",
+                "\nITEC 105 - ",
+                "\nCMSC 202 - ",
+                "\nCMSC 203 - ",
+                "\nGEC 106 - ",
+                "\nSOSLIT - ",
+                "\nMATH 24 - ",
+                "\nPATHFIT 3 - "
+            };
+
+            // Build the text to display
+            StringBuilder gradesDisplay = new StringBuilder();
+            int subjectIndex = 0; // Index to loop through subjectNames
+
+            foreach (var grade in linkedListFinalGrades)
+            {
+                // Append subject name with the grade
+                gradesDisplay.AppendLine($"{subjectNames[subjectIndex++]} {grade:F2}"); // Format grade to 2 decimal places
+
+                // Check to prevent accessing an index beyond the subjectNames array
+                if (subjectIndex >= subjectNames.Length)
+                    break;
+            }
+
+            // Set the text of the LinkedListDisplay label
+            if(linkedListFinalGrades == null || !linkedListFinalGrades.Any())
+            {
+                LinkedListDisplay.Text = "No grades available. Please ensure grades have been inputted and calculated.";
+            }
+
+            else
+            {
+                LinkedListDisplay.Text = gradesDisplay.ToString();
+                LinkedListDisplay.Refresh();
+            }
+            
         }
 
         private void Btn_Home_Click(object sender, EventArgs e)
         {
-            this.Hide();
             mainMenu form = new mainMenu();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void Btn_Home_MouseEnter(object sender, EventArgs e)
@@ -36,9 +84,8 @@ namespace SMARTGradeTracker
 
         private void SideBtn_scoreEntry_Click(object sender, EventArgs e)
         {
-            this.Hide();
             scoreEntry form = new scoreEntry();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void SideBtn_scoreEntry_MouseEnter(object sender, EventArgs e)
@@ -53,9 +100,8 @@ namespace SMARTGradeTracker
 
         private void SideBtn_userGuide_Click(object sender, EventArgs e)
         {
-            this.Hide();
             userGuide form = new userGuide();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void SideBtn_userGuide_MouseEnter(object sender, EventArgs e)
@@ -70,9 +116,8 @@ namespace SMARTGradeTracker
 
         private void SideBtn_systemCredits_Click(object sender, EventArgs e)
         {
-            this.Hide();
             systemCredits form = new systemCredits();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void SideBtn_systemCredits_MouseEnter(object sender, EventArgs e)
@@ -87,9 +132,8 @@ namespace SMARTGradeTracker
 
         private void Btn_overall_Click(object sender, EventArgs e)
         {
-            this.Hide();
             gradeViewer form = new gradeViewer();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void Btn_overall_MouseEnter(object sender, EventArgs e)
@@ -104,9 +148,8 @@ namespace SMARTGradeTracker
 
         private void Btn_computation_Click(object sender, EventArgs e)
         {
-            this.Hide();
             computationViewer form = new computationViewer();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void Btn_computation_MouseEnter(object sender, EventArgs e)
@@ -117,6 +160,16 @@ namespace SMARTGradeTracker
         private void Btn_computation_MouseLeave(object sender, EventArgs e)
         {
             Btn_computation.Image = SMARTGradeTracker.Properties.Resources.btn_computation_1;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Program.NavigationHistory.BackForm();
+        }
+
+        private void btnForward_Click(object sender, EventArgs e)
+        {
+            Program.NavigationHistory.ForwardForm();
         }
     }
 }

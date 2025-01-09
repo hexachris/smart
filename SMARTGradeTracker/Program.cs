@@ -8,6 +8,8 @@ namespace SMARTGradeTracker
 {
     internal static class Program
     {
+        public static History NavigationHistory { get; private set; }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,6 +18,7 @@ namespace SMARTGradeTracker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            NavigationHistory = new History();
             Application.Run(new mainMenu());
         }
     }

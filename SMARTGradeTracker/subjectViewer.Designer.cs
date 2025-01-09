@@ -35,12 +35,17 @@
             this.SideBtn_userGuide = new System.Windows.Forms.PictureBox();
             this.SideBtn_systemCredits = new System.Windows.Forms.PictureBox();
             this.Btn_Home = new System.Windows.Forms.PictureBox();
+            this.LinkedListDisplay = new System.Windows.Forms.Label();
+            this.btnForward = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_overall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_computation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_scoreEntry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_userGuide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_systemCredits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_overall
@@ -139,6 +144,49 @@
             this.Btn_Home.MouseEnter += new System.EventHandler(this.Btn_Home_MouseEnter);
             this.Btn_Home.MouseLeave += new System.EventHandler(this.Btn_Home_MouseLeave);
             // 
+            // LinkedListDisplay
+            // 
+            this.LinkedListDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.LinkedListDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LinkedListDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkedListDisplay.ForeColor = System.Drawing.Color.SteelBlue;
+            this.LinkedListDisplay.Location = new System.Drawing.Point(438, 290);
+            this.LinkedListDisplay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LinkedListDisplay.Name = "LinkedListDisplay";
+            this.LinkedListDisplay.Padding = new System.Windows.Forms.Padding(10);
+            this.LinkedListDisplay.Size = new System.Drawing.Size(920, 597);
+            this.LinkedListDisplay.TabIndex = 29;
+            this.LinkedListDisplay.Text = "Grade shall be displayed once grade has been calculated.";
+            this.LinkedListDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnForward
+            // 
+            this.btnForward.BackColor = System.Drawing.Color.Transparent;
+            this.btnForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnForward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnForward.Image = global::SMARTGradeTracker.Properties.Resources.arrow_right;
+            this.btnForward.Location = new System.Drawing.Point(115, 975);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(18, 26);
+            this.btnForward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnForward.TabIndex = 31;
+            this.btnForward.TabStop = false;
+            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Image = global::SMARTGradeTracker.Properties.Resources.arrow_left;
+            this.btnBack.Location = new System.Drawing.Point(52, 975);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(18, 26);
+            this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnBack.TabIndex = 30;
+            this.btnBack.TabStop = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // subjectViewer
             // 
             this.AccessibleDescription = "Your Personal Grade Tracker";
@@ -148,6 +196,9 @@
             this.BackgroundImage = global::SMARTGradeTracker.Properties.Resources.BG__2_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1478, 1054);
+            this.Controls.Add(this.btnForward);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.LinkedListDisplay);
             this.Controls.Add(this.SideBtn_scoreEntry);
             this.Controls.Add(this.SideBtn_userGuide);
             this.Controls.Add(this.SideBtn_systemCredits);
@@ -168,6 +219,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_userGuide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_systemCredits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -180,5 +233,8 @@
         private System.Windows.Forms.PictureBox SideBtn_userGuide;
         private System.Windows.Forms.PictureBox SideBtn_systemCredits;
         private System.Windows.Forms.PictureBox Btn_Home;
+        private System.Windows.Forms.Label LinkedListDisplay;
+        private System.Windows.Forms.PictureBox btnForward;
+        private System.Windows.Forms.PictureBox btnBack;
     }
 }

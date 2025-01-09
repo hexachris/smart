@@ -33,10 +33,14 @@
             this.SideBtn_gradeViewer = new System.Windows.Forms.PictureBox();
             this.Btn_Home = new System.Windows.Forms.PictureBox();
             this.SideBtn_scoreEntry = new System.Windows.Forms.PictureBox();
+            this.btnForward = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_userGuide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_gradeViewer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_scoreEntry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBtn_userGuide
@@ -103,6 +107,34 @@
             this.SideBtn_scoreEntry.MouseEnter += new System.EventHandler(this.SideBtn_scoreEntry_MouseEnter);
             this.SideBtn_scoreEntry.MouseLeave += new System.EventHandler(this.SideBtn_scoreEntry_MouseLeave);
             // 
+            // btnForward
+            // 
+            this.btnForward.BackColor = System.Drawing.Color.Transparent;
+            this.btnForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnForward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnForward.Image = global::SMARTGradeTracker.Properties.Resources.arrow_right;
+            this.btnForward.Location = new System.Drawing.Point(119, 976);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(18, 26);
+            this.btnForward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnForward.TabIndex = 30;
+            this.btnForward.TabStop = false;
+            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Image = global::SMARTGradeTracker.Properties.Resources.arrow_left;
+            this.btnBack.Location = new System.Drawing.Point(56, 976);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(18, 26);
+            this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnBack.TabIndex = 29;
+            this.btnBack.TabStop = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // systemCredits
             // 
             this.AccessibleDescription = "Your Personal Grade Tracker";
@@ -112,6 +144,8 @@
             this.BackgroundImage = global::SMARTGradeTracker.Properties.Resources.credits;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1478, 1054);
+            this.Controls.Add(this.btnForward);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.SideBtn_scoreEntry);
             this.Controls.Add(this.SideBtn_userGuide);
             this.Controls.Add(this.SideBtn_gradeViewer);
@@ -128,6 +162,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_gradeViewer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_scoreEntry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -138,5 +174,7 @@
         private System.Windows.Forms.PictureBox SideBtn_gradeViewer;
         private System.Windows.Forms.PictureBox Btn_Home;
         private System.Windows.Forms.PictureBox SideBtn_scoreEntry;
+        private System.Windows.Forms.PictureBox btnForward;
+        private System.Windows.Forms.PictureBox btnBack;
     }
 }

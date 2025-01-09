@@ -9,16 +9,45 @@ namespace SMARTGradeTracker
 {
     public class Computation
     {
-        public static List<decimal>[,] grades = new List<decimal>[8, 4];
-        public static decimal[,] weightedGrades = new decimal[8, 4];
-        public static decimal[] finalGrades = new decimal[8];
+        // Constants for better maintainability
+        private const int MAX_SUBJECTS = 8;
+        private const int MAX_ASSESSMENTS = 4;
+        private const decimal ATTENDANCE_POINTS = 20m;
+        private const decimal ASSESSMENT_WEIGHT = 0.20m;
+
+        // Grade range constants
+        private const decimal MIN_GRADE = 0m;
+        private const decimal MAX_GRADE = 100m;
+
+        // Assessment type enum for better code readability
+        public enum AssessmentType
+        {
+            Midterm = 0,
+            Finals = 1,
+            Quizzes = 2,
+            Activities = 3
+        }
+
+        public static readonly List<decimal>[,] grades;
+        public static readonly decimal[,] weightedGrades;
+        public static readonly decimal[] finalGrades;
+        public static LinkedList<decimal> linkedListFinalGrades = new LinkedList<decimal>();
+        public static readonly List<HistoryEntry> history;
 
         static Computation()
         {
-            // Initialize all Lists in the array
-            for (int i = 0; i < 8; i++)
+            grades = new List<decimal>[MAX_SUBJECTS, MAX_ASSESSMENTS];
+            weightedGrades = new decimal[MAX_SUBJECTS, MAX_ASSESSMENTS];
+            finalGrades = new decimal[MAX_SUBJECTS];
+            history = new List<HistoryEntry>();
+            InitializeGrades();
+        }
+
+        private static void InitializeGrades()
+        {
+            for (int i = 0; i < MAX_SUBJECTS; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < MAX_ASSESSMENTS; j++)
                 {
                     grades[i, j] = new List<decimal>();
                 }
@@ -26,138 +55,115 @@ namespace SMARTGradeTracker
         }
 
         // CALCULATING ALL
-        public static void CalculateAll(int subject)
+        public static void CalculateAllAssessments(int subject)
         {
-            try
-            {
-                // Calculate Midterm (20%)
-                ExamCalculate(subject, 0);
+            // Calculate each assessment type
+            ExamCalculate(subject, (int)AssessmentType.Midterm);
+            ExamCalculate(subject, (int)AssessmentType.Finals);
+            weightedGrades[subject, (int)AssessmentType.Quizzes] = ActivityCalculate(subject, (int)AssessmentType.Quizzes);
+            weightedGrades[subject, (int)AssessmentType.Activities] = ActivityCalculate(subject, (int)AssessmentType.Activities);
 
-                // Calculate Finals (20%)
-                ExamCalculate(subject, 1);
+            // Calculate and store the final grade
+            decimal totalWeightedAverage = CalculateSubjectGrade(subject);
+            finalGrades[subject] = ConvertToGrade(totalWeightedAverage);
 
-                // Calculate Quizzes (20%)
-                weightedGrades[subject, 2] = ActivityCalculate(subject, 2);
+            // Display the grade breakdown
+            DisplayGradeBreakdown(subject, totalWeightedAverage);
 
-                // Calculate Activities (20%)
-                weightedGrades[subject, 3] = ActivityCalculate(subject, 3);
+            UpdateLinkedList();
+        }
 
-                // Get final grade (includes the 20% attendance/participation)
-                decimal finalGrade = SubjectGrade(subject);
+        private static void DisplayGradeBreakdown(int subject, decimal totalWeightedAverage)
+        {
+            var breakdown = new StringBuilder();
+            breakdown.AppendLine($"Grade Calculation Results");
+            breakdown.AppendLine("------------------------");
+            breakdown.AppendLine($"Weighted Grades:");
 
-                // Show results
-                MessageBox.Show($"Subject Grade Breakdown:\n" +
-                               $"Midterm (20%): {weightedGrades[subject, 0]:F2}\n" +
-                               $"Finals (20%): {weightedGrades[subject, 1]:F2}\n" +
-                               $"Quizzes (20%): {weightedGrades[subject, 2]:F2}\n" +
-                               $"Activities (20%): {weightedGrades[subject, 3]:F2}\n" +
-                               $"Attendance/Participation (20%): 20\n" +
-                               $"Total: {finalGrade:F2}\n" +
-                               $"Final Grade: {finalGrades[subject]:F2}",
-                               "Grade Calculation Results");
+            // Show individual assessment weights
+            breakdown.AppendLine($"Midterm (20%): {weightedGrades[subject, 0]:F2}");
+            breakdown.AppendLine($"Finals (20%): {weightedGrades[subject, 1]:F2}");
+            breakdown.AppendLine($"Quizzes (20%): {weightedGrades[subject, 2]:F2}");
+            breakdown.AppendLine($"Activities (20%): {weightedGrades[subject, 3]:F2}");
+            breakdown.AppendLine($"Attendance (20%): {ATTENDANCE_POINTS:F2}");
+            breakdown.AppendLine("------------------------");
+            breakdown.AppendLine($"Total Weighted Average: {totalWeightedAverage:F2}");
+            breakdown.AppendLine($"Final Grade: {finalGrades[subject]:F2}");
 
-                // Add final grade to finalGrades array
-                finalGrades[subject] = finalGrade;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error calculating grades: {ex.Message}");
-            }
+            MessageBox.Show(breakdown.ToString(), "Grade Calculation Results",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
         // METHOD FOR CALCULATION OF EXAM
-        public static void ExamCalculate(int subject, int assessment) 
+        public static void ExamCalculate(int subject, int assessment)
         {
-            decimal examGrade = 0;
+            ValidateIndices(subject, assessment);
 
-            try
+            var gradeList = grades[subject, assessment];
+            if (!gradeList.Any())
             {
-                // retrieves grade based on whether if midterm or finals ang hanap
-                if (assessment == 0)
-                {
-                    examGrade = GetSpecificGrade(subject, 0, 0); // midterms
-                }
-
-                else if (assessment == 1)
-                {
-                    examGrade = GetSpecificGrade(subject, 1, 0); // finals
-                }
-
-                else
-                {
-                    throw new ArgumentException("Invalid assessment type");
-                }
-
-                // CALCULATES THE PERCENTAGE
-                if (examGrade != null)
-                {
-                    weightedGrades[subject, assessment] = examGrade * 0.20m;
-                }
-                
+                weightedGrades[subject, assessment] = 0;
+                return;
             }
 
-            catch (ArgumentException ex)
-            {
-                // Handle exception (e.g., grade not found or invalid assessment type)
-                MessageBox.Show($"Error: {ex.Message}");
-            }
-
-
+            decimal examGrade = GetSpecificGrade(subject, assessment, 0);
+            weightedGrades[subject, assessment] = examGrade * ASSESSMENT_WEIGHT;
         }
 
         // METHOD FOR CALCULATION OF ACTIVITY/QUIZ
-        public static decimal ActivityCalculate(int subject, int assessment) 
+        public static decimal ActivityCalculate(int subject, int assessment)
         {
-            var gradeList = grades[subject, assessment]; // Gets grades for specific subject & assessment
+            ValidateIndices(subject, assessment);
 
-            // Counts how many "grades" are recorded in a certain assessment and divides
-            decimal sumWeightedScore = 0;
-            decimal multiplier = 0.20m / gradeList.Count; 
-            
-            // Iterate thru each grade and applies the multiplier
-            foreach(var grade in gradeList)
-            {
-                decimal weightedGrade = grade * multiplier;
-                sumWeightedScore += weightedGrade;
-            }
+            var gradeList = grades[subject, assessment];
+            if (!gradeList.Any())
+                return 0;
 
-            return sumWeightedScore;
+            decimal multiplier = ASSESSMENT_WEIGHT / gradeList.Count;
+            return gradeList.Sum(grade => grade * multiplier);
         }
 
         // METHOD FOR CALCULATING TOTAL WEIGHTED AVERAGE FOR ONE SUBJECT
-        public static decimal SubjectGrade(int row) 
+        public static decimal CalculateSubjectGrade(int subject)
         {
-            decimal totalWeightedAverage = 20; // ASSUMING PARTICIPATION & ATTENDANCE IS PERFECT
+            ValidateSubjectIndex(subject);
 
-            if (row >= 0 && row < weightedGrades.GetLength(0))
+            decimal totalWeightedAverage = ATTENDANCE_POINTS;
+            for (int assessment = 0; assessment < MAX_ASSESSMENTS; assessment++)
             {
-                for (int column = 0; column < weightedGrades.GetLength(1); column++)
-                {
-                    totalWeightedAverage += weightedGrades[row, column];
-                }
-
-                finalGrades[row] = ConvertToGrade(totalWeightedAverage);
+                totalWeightedAverage += weightedGrades[subject, assessment];
             }
-
-            else { MessageBox.Show("Invalid row index."); }
 
             return totalWeightedAverage;
         }
-        
+
         // METHOD USED TO ADD GRADES FROM SCORE ENTRY FORM
-        public static void AddGrade(int subject, int assessment, decimal score) 
+        public static void AddGrade(int subject, int assessment, decimal score)
         {
+            ValidateIndices(subject, assessment);
+            ValidateGradeValue(score);
+
             grades[subject, assessment].Add(score);
+
+            HistoryEntry entry = new HistoryEntry();
+            entry.subject = subject;
+            entry.assesment = assessment;
+            entry.score = score;
+            history.Add(entry);
         }
 
         public static decimal GetSpecificGrade(int subject, int assessment, int gradeIndex)
         {
-            if (gradeIndex < 0 || gradeIndex >= grades[subject, assessment].Count)
+            ValidateIndices(subject, assessment);
+            var gradeList = grades[subject, assessment];
+
+            if (gradeIndex < 0 || gradeIndex >= gradeList.Count)
             {
-                throw new ArgumentException("Grade index out of range");
+                throw new ArgumentOutOfRangeException(nameof(gradeIndex), "Grade index is out of range");
             }
-            return grades[subject, assessment][gradeIndex];
+
+            return gradeList[gradeIndex];
         }
 
         public static decimal ConvertToGrade(decimal totalWeightedAverage)
@@ -210,52 +216,83 @@ namespace SMARTGradeTracker
             throw new ArgumentException("Invalid totalWeightedAverage value.");
         }
 
-        // FOR DEBUG
-        /*
-                public static void ShowAllGrades(Dictionary<string, int> subjectMapping, Dictionary<string, int> assessmentMapping)
-                {
-                    StringBuilder message = new StringBuilder("Complete Grade Report:\n\n");
-
-                    foreach (var subject in subjectMapping)
-                    {
-                        message.AppendLine($"=== {subject.Key} ===");
-
-                        foreach (var assessment in assessmentMapping)
-                        {
-                            message.AppendLine($"\n{assessment.Key}:");
-                            var gradeList = grades[subject.Value, assessment.Value];
-
-                            if (gradeList.Any())
-                                message.AppendLine(string.Join("\n", gradeList.Select((grade, index) =>
-                                    $"Grade {index + 1}: {grade:F2}")));
-                            else
-                                message.AppendLine("No grades recorded");
-                        }
-                        message.AppendLine("\n");
-                    }
-
-                    MessageBox.Show(message.ToString(), "Complete Grade Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-        */
-
         public static void ShowGrades(string subject, int subjectIndex, Dictionary<string, int> assessmentMapping)
         {
-            StringBuilder message = new StringBuilder($"All Grades for {subject}:\n\n");
+            ValidateSubjectIndex(subjectIndex);
 
+            var report = new StringBuilder($"All Grades for {subject}:\n\n");
             foreach (var assessment in assessmentMapping)
             {
-                message.AppendLine($"{assessment.Key}:");
+                report.AppendLine($"{assessment.Key}:");
                 var gradeList = grades[subjectIndex, assessment.Value];
 
                 if (gradeList.Any())
-                    message.AppendLine(string.Join("\n", gradeList.Select((grade, index) => $"Grade {index + 1}: {grade:F2}")));
+                {
+                    for (int i = 0; i < gradeList.Count; i++)
+                    {
+                        report.AppendLine($"Grade {i + 1}: {gradeList[i]:F2}");
+                    }
+                }
                 else
-                    message.AppendLine("No grades recorded yet.");
-
-                message.AppendLine(); // Add blank line between assessments
+                {
+                    report.AppendLine("No grades recorded yet.");
+                }
+                report.AppendLine();
             }
 
-            MessageBox.Show(message.ToString(), "Grade List", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Windows.Forms.MessageBox.Show(report.ToString(), "Grade List",
+                System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBoxIcon.Information);
         }
+
+        public static void UpdateLinkedList()
+        {
+            linkedListFinalGrades.Clear();
+            foreach (var grade in finalGrades)
+            {
+                linkedListFinalGrades.AddLast(grade);
+            }
+        }
+
+        // VALIDATE VARIABLES
+        private static void ValidateSubjectIndex(int subject)
+        {
+            if (subject < 0 || subject >= MAX_SUBJECTS)
+            {
+                throw new ArgumentOutOfRangeException(nameof(subject),
+                    $"Subject index must be between 0 and {MAX_SUBJECTS - 1}");
+            }
+        }
+
+        private static void ValidateAssessmentIndex(int assessment)
+        {
+            if (assessment < 0 || assessment >= MAX_ASSESSMENTS)
+            {
+                throw new ArgumentOutOfRangeException(nameof(assessment),
+                    $"Assessment index must be between 0 and {MAX_ASSESSMENTS - 1}");
+            }
+        }
+
+        private static void ValidateIndices(int subject, int assessment)
+        {
+            ValidateSubjectIndex(subject);
+            ValidateAssessmentIndex(assessment);
+        }
+
+        private static void ValidateGradeValue(decimal grade)
+        {
+            if (grade < MIN_GRADE || grade > MAX_GRADE)
+            {
+                throw new ArgumentOutOfRangeException(nameof(grade),
+                    $"Grade must be between {MIN_GRADE} and {MAX_GRADE}");
+            }
+        }
+    }
+
+    public class HistoryEntry
+    {
+        public int subject;
+        public int assesment;
+        public decimal score;
     }
 }

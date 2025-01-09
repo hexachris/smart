@@ -19,9 +19,8 @@ namespace SMARTGradeTracker
 
         private void Btn_Home_Click(object sender, EventArgs e)
         {
-            this.Hide();
             mainMenu form = new mainMenu();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this   );
         }
 
         private void Btn_Home_MouseEnter(object sender, EventArgs e)
@@ -36,9 +35,8 @@ namespace SMARTGradeTracker
 
         private void SideBtn_scoreEntry_Click(object sender, EventArgs e)
         {
-            this.Hide();
             scoreEntry form = new scoreEntry();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void SideBtn_scoreEntry_MouseEnter(object sender, EventArgs e)
@@ -63,16 +61,14 @@ namespace SMARTGradeTracker
 
         private void SideBtn_gradeViewer_Click(object sender, EventArgs e)
         {
-            this.Hide();
             gradeViewer form = new gradeViewer();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void SideBtn_userGuide_Click(object sender, EventArgs e)
         {
-            this.Hide();
             userGuide form = new userGuide();
-            form.Show();
+            Program.NavigationHistory.AddToHistory(form, this);
         }
 
         private void SideBtn_userGuide_MouseEnter(object sender, EventArgs e)
@@ -83,6 +79,16 @@ namespace SMARTGradeTracker
         private void SideBtn_userGuide_MouseLeave(object sender, EventArgs e)
         {
             SideBtn_userGuide.Image = SMARTGradeTracker.Properties.Resources.sidebtn_user_guide;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Program.NavigationHistory.BackForm();
+        }
+
+        private void btnForward_Click(object sender, EventArgs e)
+        {
+            Program.NavigationHistory.ForwardForm();
         }
     }
 }

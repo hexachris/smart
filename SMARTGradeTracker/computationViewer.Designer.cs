@@ -35,12 +35,20 @@
             this.Btn_Home = new System.Windows.Forms.PictureBox();
             this.Btn_subject = new System.Windows.Forms.PictureBox();
             this.Btn_overall = new System.Windows.Forms.PictureBox();
+            this.btnForward = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.PictureBox();
+            this.btn_quiz = new System.Windows.Forms.Button();
+            this.btn_exam = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_scoreEntry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_userGuide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBtn_systemCredits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_subject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_overall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBtn_scoreEntry
@@ -139,6 +147,68 @@
             this.Btn_overall.MouseEnter += new System.EventHandler(this.Btn_overall_MouseEnter);
             this.Btn_overall.MouseLeave += new System.EventHandler(this.Btn_overall_MouseLeave);
             // 
+            // btnForward
+            // 
+            this.btnForward.BackColor = System.Drawing.Color.Transparent;
+            this.btnForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnForward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnForward.Image = global::SMARTGradeTracker.Properties.Resources.arrow_right;
+            this.btnForward.Location = new System.Drawing.Point(118, 970);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(18, 26);
+            this.btnForward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnForward.TabIndex = 30;
+            this.btnForward.TabStop = false;
+            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Image = global::SMARTGradeTracker.Properties.Resources.arrow_left;
+            this.btnBack.Location = new System.Drawing.Point(55, 970);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(18, 26);
+            this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnBack.TabIndex = 29;
+            this.btnBack.TabStop = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btn_quiz
+            // 
+            this.btn_quiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quiz.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_quiz.Location = new System.Drawing.Point(494, 768);
+            this.btn_quiz.Name = "btn_quiz";
+            this.btn_quiz.Size = new System.Drawing.Size(368, 44);
+            this.btn_quiz.TabIndex = 31;
+            this.btn_quiz.Text = "Quiz/Activity Computation Flowchart";
+            this.btn_quiz.UseVisualStyleBackColor = true;
+            this.btn_quiz.Click += new System.EventHandler(this.btn_quiz_Click);
+            // 
+            // btn_exam
+            // 
+            this.btn_exam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_exam.Location = new System.Drawing.Point(948, 661);
+            this.btn_exam.Name = "btn_exam";
+            this.btn_exam.Size = new System.Drawing.Size(378, 44);
+            this.btn_exam.TabIndex = 32;
+            this.btn_exam.Text = "Exam Computation Flowchart";
+            this.btn_exam.UseVisualStyleBackColor = true;
+            this.btn_exam.Click += new System.EventHandler(this.btn_exam_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SMARTGradeTracker.Properties.Resources.Computation;
+            this.pictureBox1.Location = new System.Drawing.Point(476, 310);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(850, 452);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            // 
             // computationViewer
             // 
             this.AccessibleDescription = "Your Personal Grade Tracker";
@@ -148,12 +218,17 @@
             this.BackgroundImage = global::SMARTGradeTracker.Properties.Resources.BG1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1478, 1054);
+            this.Controls.Add(this.btn_exam);
+            this.Controls.Add(this.btn_quiz);
+            this.Controls.Add(this.btnForward);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.Btn_overall);
             this.Controls.Add(this.Btn_subject);
             this.Controls.Add(this.SideBtn_scoreEntry);
             this.Controls.Add(this.SideBtn_userGuide);
             this.Controls.Add(this.SideBtn_systemCredits);
             this.Controls.Add(this.Btn_Home);
+            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -170,6 +245,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_subject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_overall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnForward)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +259,10 @@
         private System.Windows.Forms.PictureBox Btn_Home;
         private System.Windows.Forms.PictureBox Btn_subject;
         private System.Windows.Forms.PictureBox Btn_overall;
+        private System.Windows.Forms.PictureBox btnForward;
+        private System.Windows.Forms.PictureBox btnBack;
+        private System.Windows.Forms.Button btn_quiz;
+        private System.Windows.Forms.Button btn_exam;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
