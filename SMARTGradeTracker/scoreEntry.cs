@@ -68,16 +68,18 @@ namespace SMARTGradeTracker
         {
             // Discard all entries
             historyBox.Nodes.Clear();
-
+            historyBox.BeginUpdate();
             // Readd all entries
             foreach (HistoryEntry entry in Computation.history)
             {
                 TreeNode node = new TreeNode(assesmentReverseMapping[entry.assesment]);
                 string remark = entry.score >= 50 ? "Passed" : "Failed";
+                node.Nodes.Add(subjectReverseMapping[entry.subject]);
                 node.Nodes.Add($"{remark}: {entry.score}%");
                 historyBox.Nodes.Insert(0, node);
             }
             historyBox.ExpandAll();
+            historyBox.EndUpdate();
         }
         private void ScoreEntry_Load(object sender, EventArgs e) // dito placement ng mga pang add ng values sa mga combo box etc.
         {
@@ -386,6 +388,26 @@ namespace SMARTGradeTracker
         private void btnForward_Click(object sender, EventArgs e)
         {
             Program.NavigationHistory.ForwardForm();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            TreeNode node = historyBox.SelectedNode;
+            if (node == null)
+            {
+                Computation.RemoveOldGradeCount(1);
+            } else
+            {
+                while (node.Parent != null)
+                {
+                    node = node.Parent;
+                }
+                int i = historyBox.Nodes.IndexOf(node);
+                int length = historyBox.Nodes.Count;
+                int count = length - i;
+                Computation.RemoveOldGradeCount(count);
+            }
+            UpdateHistory();
         }
 
         private void btnCalculate_MouseLeave(object sender, EventArgs e)

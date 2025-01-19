@@ -32,14 +32,14 @@ namespace SMARTGradeTracker
         public static readonly decimal[,] weightedGrades;
         public static readonly decimal[] finalGrades;
         public static LinkedList<decimal> linkedListFinalGrades = new LinkedList<decimal>();
-        public static readonly List<HistoryEntry> history;
+        public static readonly Queue<HistoryEntry> history;
 
         static Computation()
         {
             grades = new List<decimal>[MAX_SUBJECTS, MAX_ASSESSMENTS];
             weightedGrades = new decimal[MAX_SUBJECTS, MAX_ASSESSMENTS];
             finalGrades = new decimal[MAX_SUBJECTS];
-            history = new List<HistoryEntry>();
+            history = new Queue<HistoryEntry>();
             InitializeGrades();
         }
 
@@ -150,7 +150,19 @@ namespace SMARTGradeTracker
             entry.subject = subject;
             entry.assesment = assessment;
             entry.score = score;
-            history.Add(entry);
+            history.Enqueue(entry);
+        }
+
+        public static void RemoveOldGrade()
+        {
+            HistoryEntry entry = history.Dequeue();
+            grades[entry.subject, entry.assesment].RemoveAt(0);
+        }
+        public static void RemoveOldGradeCount(int count)
+        {
+            for (int i = 0; i < count; i++) {
+                RemoveOldGrade();
+            }
         }
 
         public static decimal GetSpecificGrade(int subject, int assessment, int gradeIndex)
